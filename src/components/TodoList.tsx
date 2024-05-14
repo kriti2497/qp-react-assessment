@@ -30,15 +30,15 @@ const TodoList = () => {
       <table className="w-full">
         <thead>
           <tr className="text-xl text-left text-todoVeryDarkGrayishBlue2">
-            <th>Title</th>
-            <th>Status</th>
+            <th className="w-3/4">Title</th>
+            <th className="w-1/4">Status</th>
           </tr>
         </thead>
         <tbody>
           {todoArrayList.map((todo: TodoArrayProps) => (
             <tr key={todo.id} className="leading-10 hover:bg-gray-400 mb-2">
-              <td className="pl-4 pr-2 break-all">{todo.title}</td>
-              <td className="pl-2 pr-4">
+              <td className="pl-4 pr-2 break-all w-3/4">{todo.title}</td>
+              <td className="pl-2 pr-4 w-1/4">
                 <div className="flex gap-2">
                   <input
                     type="radio"
@@ -49,7 +49,14 @@ const TodoList = () => {
                       handleRadioChange(e.target.value, todo.id)
                     }
                   />
-                  <label htmlFor="incomplete">Incomplete</label>
+                  <label
+                    className={`${
+                      !todo.isComplete ? "text-red-600" : "text-black"
+                    }`}
+                    htmlFor="incomplete"
+                  >
+                    Incomplete
+                  </label>
                 </div>
 
                 <div className="flex gap-2">
@@ -62,7 +69,14 @@ const TodoList = () => {
                       handleRadioChange(e.target.value, todo.id)
                     }
                   />
-                  <label htmlFor="complete">Complete</label>
+                  <label
+                    className={`${
+                      todo.isComplete ? "text-green-600" : "text-black"
+                    }`}
+                    htmlFor="complete"
+                  >
+                    Complete
+                  </label>
                 </div>
               </td>
             </tr>

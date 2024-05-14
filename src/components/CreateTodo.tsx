@@ -20,7 +20,7 @@ const CreateTodo: React.FC<CreateTodoProps> = ({ todoArray, setTodoArray }) => {
     setTodoTitle("");
   };
   return (
-    <div className="px-10 py-4">
+    <div className=" py-4">
       <div className="flex justify-between items-center w-full">
         <div className="flex flex-col md:flex-row gap-4 w-full items-start">
           <div className="w-full">
